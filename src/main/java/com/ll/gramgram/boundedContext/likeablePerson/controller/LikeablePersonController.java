@@ -133,19 +133,19 @@ public class LikeablePersonController {
             Stream<LikeablePerson> likeablePeopleStream = instaMember.getToLikeablePeople().stream();
 
             if (gender != null) {
-                // likeablePeopleStream = likeablePeopleStream.filter();
+                 likeablePeopleStream = likeablePeopleStream.filter(likeablePerson -> likeablePerson.getGender() == gender);
             }
 
             if (attractiveTypeCode != 0) {
-                // likeablePeopleStream = likeablePeopleStream.filter();
+                 likeablePeopleStream = likeablePeopleStream.filter(likeablePerson -> likeablePerson.getAttractiveTypeCode() == attractiveTypeCode);
             }
 
             switch (sortCode) {
                 case 1:
-                    // likeablePeopleStream = likeablePeopleStream.sorted(??);
+                     likeablePeopleStream = likeablePeopleStream.sorted(((o1, o2) -> o2.getGender().compareTo(o1.getAttractiveTypeDisplayName())));
                     break;
                 case 2:
-                    // likeablePeopleStream = likeablePeopleStream.sorted(??);
+                     likeablePeopleStream = likeablePeopleStream.sorted((o1, o2) -> o1.getGender().compareTo(o2.getAttractiveTypeDisplayName()));
                     break;
                 case 3:
                     // likeablePeopleStream = likeablePeopleStream.sorted(??);
